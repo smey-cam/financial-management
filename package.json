@@ -56,6 +56,7 @@
     "apexcharts-clevision": "3.28.5",
     "babel-eslint": "^10.1.0",
     "bootstrap": "^5.3.3",
+    "chart.js": "^4.4.3",
     "clsx": "^1.1.1",
     "eslint-plugin-react": "^7.29.4",
     "mdi-material-ui": "^7.1.0",
@@ -69,7 +70,8 @@
     "react-dom": "17.0.2",
     "react-icons": "^5.0.1",
     "react-perfect-scrollbar": "^1.5.8",
-    "react-popper": "^2.2.5"
+    "react-popper": "^2.2.5",
+    "yarn": "^1.22.22"
   },
   "devDependencies": {
     "eslint": "^7.32.0",

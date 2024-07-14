@@ -1,7 +1,6 @@
 import React from 'react'
 import { Modal, Form, Button } from 'react-bootstrap'
 import './messageModal.module.css'
-// import { CButton } from '@coreui/react'
 
 class MessageModalMain extends React.Component {
     constructor(props) {
@@ -53,7 +52,7 @@ class MessageModalMain extends React.Component {
             title
         })
     }
-    
+
     showWarningConfirm(message, onHide, title) {
         this.setState({
             visible: true,
@@ -76,75 +75,75 @@ class MessageModalMain extends React.Component {
         } else if (type === 'Warning') {
             icon = ''// require('../../assets/images/Warning.png');
         }
+
         return (
-            <Modal
-                show={visible}
-                onHide={() => {
-                    if (handleOnHide) {
-                        handleOnHide()
-                    }
-                }}
-                centered
-                dialogClassName="modal-600px"
-            >
-                <div
-                    style={{
-                        backgroundColor: "white",
-                        borderTop: `5px solid #dc3545`,
-                        borderRadius: "4px",
-                    }}
-                >
-
-                    <Form.Text className="primary_title">
-                        {title}
-                    </Form.Text>
-                    <div style={{
-                        display: 'flex',
-                        alignItems: 'flex-end',
-                        justifyContent: 'flex-end'
-                    }}>
-                    </div>
-                    <div className="mr-4 ml-4 mb-1 pt-3" style={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        flexDirection: 'column',
-                        alignItems: 'center'
-                    }}>
-                        {
-                          icon ?  type !== 'danger' ? <div className="mt-4" style={{ display: 'flex', justifyContent: 'center' }}><img style={{ objectFit: 'cover', height:"54px" }} src={icon.default} alt="" /></div> : null : null
+            <>
+                <Modal
+                    show={visible}
+                    onHide={() => {
+                        if (handleOnHide) {
+                            handleOnHide()
                         }
-
-                        <Form.Text style={{ fontSize: '24px', fontWeight: 700, color:'#000000' }} className={`text-center primary_title text-${type}-`}>
-                            {
-                                type === 'danger' ? 'Oops!' : type + '!'
-                            }
-
+                    }}
+                    centered
+                    dialogClassName="modal-600px"
+                >
+                    <div
+                        style={{
+                            backgroundColor: "white",
+                            borderTop: `5px solid #dc3545`,
+                            borderRadius: "4px",
+                        }}
+                    >
+                        <Form.Text className="primary_title">
+                            {title}
                         </Form.Text>
-                        <p style={{ fontWeight: '400', fontSize: '16px', lineHeight: '1.3', textAlign: textCentered ? "center" : "inherit", marginTop: '18px' }}>{(typeof message) === 'string' ? message : message}</p>
-                    </div>
-                    <div className="pb-4 text-center">
-                        <Button
-                            color="primary"
-                            className="rounded-pill"
-                            onClick={() => {
-                                this.setState({ visible: false })
-                                if (handleOnHide) {
-                                    handleOnHide()
+                        <div style={{
+                            display: 'flex',
+                            alignItems: 'flex-end',
+                            justifyContent: 'flex-end'
+                        }}>
+                        </div>
+                        <div className="mr-4 ml-4 mb-1 pt-3" style={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            flexDirection: 'column',
+                            alignItems: 'center'
+                        }}>
+                            {
+                                icon ? type !== 'danger' ? <div className="mt-4" style={{ display: 'flex', justifyContent: 'center' }}><img style={{ objectFit: 'cover', height: "54px" }} src={icon.default} alt="" /></div> : null : null
+                            }
+                            <Form.Text style={{ fontSize: '24px', fontWeight: 700, color: '#000000' }} className={`text-center primary_title text-${type}-`}>
+                                {
+                                    type === 'danger' ? 'Oops!' : type + '!'
                                 }
-                            }}
-                            style={{
-                                width: width ? width : "170px",
-                                height: "60px",
-                                backgroundColor: "#dc3545",
-                                border: 'none',
-                                fontSize: '16px',
-                                fontWeight: 700
-                            }}>
-                            {textClose ? textClose : 'Close'}
+                            </Form.Text>
+                            <p style={{ fontWeight: '400', fontSize: '16px', lineHeight: '1.3', textAlign: textCentered ? "center" : "inherit", marginTop: '18px' }}>{(typeof message) === 'string' ? message : message}</p>
+                        </div>
+                        <div className="pb-4 text-center">
+                            <Button
+                                color="primary"
+                                className="rounded-pill"
+                                onClick={() => {
+                                    this.setState({ visible: false })
+                                    if (handleOnHide) {
+                                        handleOnHide()
+                                    }
+                                }}
+                                style={{
+                                    width: width ? width : "170px",
+                                    height: "60px",
+                                    backgroundColor: "#dc3545",
+                                    border: 'none',
+                                    fontSize: '16px',
+                                    fontWeight: 700
+                                }}>
+                                {textClose ? textClose : 'Close'}
                             </Button>
+                        </div>
                     </div>
-                </div>
-            </Modal>
+                </Modal>
+            </>
         )
     }
 }
