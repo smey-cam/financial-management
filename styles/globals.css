@@ -28,3 +28,10 @@ code:not([class*='language-']):after {
 code[class*='language-'] {
   padding: 0;
 }
+
+@media (max-width: 899.95px) {
+  .css-1ci0qiy {
+      display: inline !important;
+      overflow: auto;
+  }
+}
