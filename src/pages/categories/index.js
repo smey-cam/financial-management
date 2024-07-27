@@ -32,19 +32,18 @@ const AccountSettings = () => {
   const [formValues, setFormValues] = useState({ name: '', description: '', search: '' });
   const [image, setImage] = useState(null);
   const [data, setData] = useState([{
-      no: 1,
-      createdDate: '09/27/2023',
-      category: 'Salary',
+      no:"1",
+      createdDate:'09/27/2023',
+      category:'Salary',
       amount: '$1500.00',
-      description: 'Monthly Salary',
-      payment: 'Cash',
-      ref: 'Photo',
-      remark: "Transfer to ....",
-      tag: "Work"
+      description:'Monthly Salary',
+      payment:'Cash',
+      ref:'Photo',
+      remark:"Transfer to",
+      tag:"Work"
     },
   ]);
 
- 
   const [page, setPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
