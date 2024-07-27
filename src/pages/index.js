@@ -6,6 +6,7 @@ import Trophy from 'src/views/dashboard/Trophy'
 import { Pie } from 'react-chartjs-2'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
+import LoginPage from './pages/login';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -15,7 +16,7 @@ const Dashboard = () => {
       title: 'Total Income',
       price: '1000.5',
       currency: '$',
-      icon: 'https://pnglib.nyc3.cdn.digitaloceanspaces.com/uploads/2020/01/income-picture_5e18f21d231a7.png'
+      icon: 'https://static.vecteezy.com/system/resources/previews/023/743/918/non_2x/green-dollars-and-a-stack-of-gold-coins-a-bag-of-money-in-the-background-a-red-arrow-up-increase-in-mutual-funds-income-statistical-report-business-productivity-increase-free-png.png'
     },
     {
       title: 'Total Expenses',

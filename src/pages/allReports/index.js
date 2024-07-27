@@ -87,11 +87,6 @@ const AccountSettings = () => {
             }
           />
         </TabList>
-        <div className='' style={{marginRight:"1.5rem", marginTop:"-2.5rem", float:"right"}}>
-          <Button size='small' variant='contained'>
-            Add New
-          </Button>
-        </div>
         <TabPanel sx={{ p: 0 }} value='account'>
           <TableIncome />
           {/* <TabAccount /> */}
