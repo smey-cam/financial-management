@@ -31,8 +31,7 @@ const AccountSettings = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [formValues, setFormValues] = useState({ name: '', description: '', search: '' });
   const [image, setImage] = useState(null);
-  const [data, setData] = useState([
-    {
+  const [data, setData] = useState([{
       no: 1,
       createdDate: '09/27/2023',
       category: 'Salary',
