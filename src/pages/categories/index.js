@@ -5,7 +5,6 @@ import { Search as SearchIcon, Add as AddIcon, Download as DownloadIcon, Delete 
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
-// import TableIncome from './TableIncome'; // Adjust the path as necessary
 import 'react-datepicker/dist/react-datepicker.css';
 import TableIncome from 'src/views/dashboard/TableIncome';
 
@@ -46,7 +45,7 @@ const AccountSettings = () => {
     },
   ]);
 
-  // Pagination state
+ 
   const [page, setPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
