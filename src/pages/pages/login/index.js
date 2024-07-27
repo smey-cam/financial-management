@@ -246,6 +246,6 @@ const LoginPage = () => {
     </Box>
   )
 }
-LoginPage.getLayout = page => <BlankLayout>{page}</BlankLayout>
+LoginPage.getLayout = page => <BlankLayout>{page}</BlankLayout>;
 
 export default LoginPage
