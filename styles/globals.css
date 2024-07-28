@@ -2,6 +2,9 @@ html,
 body {
   min-height: 100%;
 }
+.css-1omfavb{
+  background-color: white !important;
+}
 
 #__next {
   height: 100%;
