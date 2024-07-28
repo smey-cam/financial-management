@@ -43,7 +43,7 @@ const AccountSettings = () => {
       remark: "Transfer to ....",
       tag: "Work"
     },
-]);
+  ]);
 
   const [page, setPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -134,8 +134,8 @@ const AccountSettings = () => {
 
   return (
     <>
-      <DialogTitle sx={{ fontWeight: 700, marginLeft: "-1rem", marginTop: "-2rem" }}>All Income</DialogTitle>
-      <Card>
+      <DialogTitle sx={{ fontWeight: 700, marginLeft: "-1rem", marginTop: "-2rem", textTransform: 'capitalize' }}>All {activeTab}</DialogTitle>
+      <Card sx={{ minHeight: "40rem" }}>
         <Grid container spacing={2} alignItems='center' padding="1rem 1.5rem">
           <Grid item xs={12} sm={8}>
             <TextField
@@ -226,7 +226,7 @@ const AccountSettings = () => {
       </Card>
 
       <Dialog open={dialogOpen} onClose={handleDialogClose} maxWidth='sm' fullWidth>
-        <DialogTitle sx={{ textAlign: 'center', fontWeight: 700 }}>Create Income</DialogTitle>
+        <DialogTitle sx={{ textAlign: 'center', fontWeight: 700, textTransform: 'capitalize' }}>Create {activeTab}</DialogTitle>
         <DialogContent>
           <TextField
             autoFocus

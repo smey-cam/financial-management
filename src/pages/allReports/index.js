@@ -1,14 +1,12 @@
 // ** React Imports
 import { useState } from 'react'
 
-// ** MUI Imports
-import Box from '@mui/material/Box'
-import Card from '@mui/material/Card'
 import TabList from '@mui/lab/TabList'
 import TabPanel from '@mui/lab/TabPanel'
 import TabContext from '@mui/lab/TabContext'
 import { styled } from '@mui/material/styles'
 import MuiTab from '@mui/material/Tab'
+import { DialogTitle, Box, Card, TablePagination, Button } from '@mui/material';
 
 // ** Icons Imports
 import AccountOutline from 'mdi-material-ui/AccountOutline'
@@ -23,7 +21,7 @@ import TabSecurity from 'src/views/account-settings/TabSecurity'
 // ** Third Party Styles Imports
 import 'react-datepicker/dist/react-datepicker.css'
 import TableIncome from 'src/views/dashboard/TableIncome'
-import { Button } from '@mui/material'
+import TableAllReport from 'src/views/dashboard/TableAllReport'
 
 const Tab = styled(MuiTab)(({ theme }) => ({
   [theme.breakpoints.down('md')]: {
@@ -52,53 +50,68 @@ const AccountSettings = () => {
   }
 
   return (
-    <Card>
-      <TabContext value={value}>
-        <TabList
-          onChange={handleChange}
-          aria-label='account-settings tabs'
-          sx={{ borderBottom: theme => `1px solid ${theme.palette.divider}` }}
-        >
-          <Tab
-            value='account'
-            label={
-              <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                {/* <AccountOutline /> */}
-                <TabName>Income Reports</TabName>
-              </Box>
-            }
-          />
-          <Tab
-            value='security'
-            label={
-              <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                {/* <LockOpenOutline /> */}
-                <TabName>Expense Reports</TabName>
-              </Box>
-            }
-          />
-          <Tab
-            value='info'
-            label={
-              <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                {/* <InformationOutline /> */}
-                <TabName>Balance Reports</TabName>
-              </Box>
-            }
-          />
-        </TabList>
-        <TabPanel sx={{ p: 0 }} value='account'>
-          <TableIncome />
-          {/* <TabAccount /> */}
-        </TabPanel>
-        <TabPanel sx={{ p: 0 }} value='security'>
-        <TableIncome />
-        </TabPanel>
-        {/* <TabPanel sx={{ p: 0 }} value='info'>
+    <>
+      <DialogTitle sx={{ fontWeight: 700, marginLeft: "-1rem", marginTop: "-2rem" }}>All Reports</DialogTitle>
+
+      <Card>
+        <TabContext value={value}>
+          <TabList
+            onChange={handleChange}
+            aria-label='account-settings tabs'
+            sx={{ borderBottom: theme => `1px solid ${theme.palette.divider}` }}
+          >
+            <Tab
+              value='account'
+              label={
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  {/* <AccountOutline /> */}
+                  <TabName>Income Reports</TabName>
+                </Box>
+              }
+            />
+            <Tab
+              value='security'
+              label={
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  {/* <LockOpenOutline /> */}
+                  <TabName>Expense Reports</TabName>
+                </Box>
+              }
+            />
+            <Tab
+              value='info'
+              label={
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  {/* <InformationOutline /> */}
+                  <TabName>Balance Reports</TabName>
+                </Box>
+              }
+            />
+          </TabList>
+          <Box sx={{
+            display: 'flex',
+            margin: '1rem',
+            justifyContent:"end"
+          }} >
+            <Button sx={{ marginRight: '8px' }} onClick={() => console.log("Daily")} variant='outlined' color='secondary'>Daily</Button>
+            <Button sx={{ marginRight: '8px' }} onClick={() => console.log("Weekly")} variant='outlined' color='secondary'>Weekly</Button>
+            <Button sx={{ marginRight: '8px' }} onClick={() => console.log("Monthly")} variant='outlined' color='secondary'>Monthly</Button>
+            <Button sx={{ marginRight: '8px' }} onClick={() => console.log("Yearly")} variant='outlined' color='secondary'>Yearly</Button>
+            <Button onClick={() => console.log("Export")} variant='outlined' color='secondary'>Export</Button>
+          </Box>
+          <TabPanel sx={{ p: 0 }} value='account'>
+            <TableAllReport />
+            {/* <TabAccount /> */}
+          </TabPanel>
+          <TabPanel sx={{ p: 0 }} value='security'>
+            <TableAllReport />
+          </TabPanel>
+          {/* <TabPanel sx={{ p: 0 }} value='info'>
           <TabInfo />
         </TabPanel> */}
-      </TabContext>
-    </Card>
+        </TabContext>
+      </Card>
+    </>
   )
 }
 
