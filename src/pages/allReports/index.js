@@ -53,7 +53,7 @@ const AccountSettings = () => {
     <>
       <DialogTitle sx={{ fontWeight: 700, marginLeft: "-1rem", marginTop: "-2rem" }}>All Reports</DialogTitle>
 
-      <Card>
+      <Card sx={{ minHeight: "40rem" }}>
         <TabContext value={value}>
           <TabList
             onChange={handleChange}
