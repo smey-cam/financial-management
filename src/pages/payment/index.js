@@ -1,30 +1,8 @@
 import { useState } from 'react'
-import TabList from '@mui/lab/TabList'
-import TabPanel from '@mui/lab/TabPanel'
-import TabContext from '@mui/lab/TabContext'
-import { styled } from '@mui/material/styles'
 import 'react-datepicker/dist/react-datepicker.css'
-import { Box, Button, Card, Dialog, DialogActions, DialogContent, DialogTitle, Grid, InputAdornment, TextField, Tab } from '@mui/material';
-import TableCategory from 'src/views/dashboard/TableCategory'
+import { Button, Card, Dialog, DialogActions, DialogContent, DialogTitle, Grid, InputAdornment, TextField } from '@mui/material';
 import { Search as SearchIcon, Add as AddIcon } from '@mui/icons-material';
-
-const StyledTab = styled(Tab)(({ theme }) => ({
-  [theme.breakpoints.down('md')]: {
-    minWidth: 100,
-  },
-  [theme.breakpoints.down('sm')]: {
-    minWidth: 67,
-  },
-}));
-
-const TabName = styled('span')(({ theme }) => ({
-  lineHeight: 1.71,
-  fontSize: '0.875rem',
-  marginLeft: theme.spacing(2.4),
-  [theme.breakpoints.down('md')]: {
-    display: 'none',
-  },
-}));
+import TablePayment from 'src/views/dashboard/TablePayment'
 
 const AccountSettings = () => {
   const [value, setValue] = useState('income')
@@ -53,9 +31,14 @@ const AccountSettings = () => {
     setDialogOpen(true);
   };
 
+  const handleDelete = (id) => {
+    // Implement delete functionality here, such as:
+    // setData(prevData => prevData.filter(item => item.no !== id));
+  };
+
   return (
     <>
-      <DialogTitle sx={{ fontWeight: 700, marginLeft: "-1rem", marginTop: "-2rem" }}>All Categories</DialogTitle>
+      <DialogTitle sx={{ fontWeight: 700, marginLeft: "-1rem", marginTop: "-2rem" }}>All Payment Method</DialogTitle>
       <Card sx={{ minHeight: "40rem" }}>
         <Grid container spacing={12} alignItems='center' padding="1rem 1.5rem" justifyContent="space-between">
           <Grid item xs={12} sm={8}>
@@ -90,41 +73,13 @@ const AccountSettings = () => {
             </Button>
           </Grid>
         </Grid>
-        <TabContext value={value}>
-          <TabList
-            onChange={handleChange}
-            aria-label='account-settings tabs'
-            sx={{ borderBottom: theme => `1px solid ${theme.palette.divider}` }}
-          >
-            <StyledTab
-              value='income'
-              label={
-                <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                  <TabName>Income</TabName>
-                </Box>
-              }
-            />
-            <StyledTab
-              value='expense'
-              label={
-                <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                  <TabName>Expense</TabName>
-                </Box>
-              }
-            />
-          </TabList>
-          <TabPanel sx={{ p: 0 }} value='income'>
-            <TableCategory
-              handleEdit={handleEdit}
-            />
-          </TabPanel>
-          <TabPanel sx={{ p: 0 }} value='expense'>
-            <TableCategory handleEdit={handleEdit} />
-          </TabPanel>
-        </TabContext>
+        <TablePayment
+          handleEdit={handleEdit}
+          handleDelete={handleDelete}
+        />
       </Card>
       <Dialog open={dialogOpen} onClose={handleDialogClose} maxWidth='sm' fullWidth>
-        <DialogTitle sx={{ textAlign: 'center', fontWeight: 700, textTransform: 'capitalize' }}>Create {value} Category</DialogTitle>
+        <DialogTitle sx={{ textAlign: 'center', fontWeight: 700, textTransform: 'capitalize' }}>Create Payment Category</DialogTitle>
         <DialogContent>
           <TextField
             autoFocus
